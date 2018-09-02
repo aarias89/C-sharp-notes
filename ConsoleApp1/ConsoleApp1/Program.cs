@@ -8,26 +8,33 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //int[] numbers = new[3];
-            var numbers = new int[3];
-            numbers[0] = 1;
-            numbers[1] = 2;
-         
-            Console.WriteLine(numbers[0]);
-            Console.WriteLine(numbers[1]);
-            //default initialization for int type is 0
-            Console.WriteLine(numbers[2]);
 
-            //default initialization for bool type is false
-            var flags = new bool[3];
-            flags[0] = true;
+            var firstName = "Frodo";
+            //C#
+            string lastName = "Baggins";
+            int j;
+            //.Net Framework
+            String home = "Shire";
+            Int32 i;
 
-            Console.WriteLine(flags[0]);
-            Console.WriteLine(flags[1]);
-            Console.WriteLine(flags[2]);
+            var fullName = firstName + " " + lastName;
+            //string format
+            var myFullName = string.Format("My name is {0} {1}", firstName, lastName);
 
-            //object initialization syntax
-            var names = new string[3] { "Jack","John","Mary" };
+            //string join
+            var names = new string[3] { "John", "Jack", "Mary" };
+            var formattedNames = string.Join(",", names);
+
+            Console.WriteLine(formattedNames);
+
+            //verbatims strings
+            //var text = "Hi John\n look into the following path \n c:\\projects\\project1\\folder";
+            var text = @"Hi John
+look into the following path
+c:\projects\project1\folder";
+            Console.WriteLine(text);
+
+
 
         }
     }
