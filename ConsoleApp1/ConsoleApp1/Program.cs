@@ -3,38 +3,36 @@
 
 namespace ConsoleApp1
 {
+    public enum ShippingMethod
+    {
+        //best practice to set values to the enums, sometimes in databases you might have a table that represents the enum with the corresponding value. 
+        RegularAirMail = 1,
+        RegisteredAirMail = 2,
+        Express = 3
+    }
+
 
     class Program
     {
         static void Main(string[] args)
         {
+            var method = ShippingMethod.Express;
+            Console.WriteLine(method);
+            Console.WriteLine((int)method);
+            //assume you receive the number 3 from an outside source and you want to convert it to a shipping method.
+            var methodId = 3;
+            //in here you are using Explicit type conversion (casting)
+            Console.WriteLine((ShippingMethod)methodId);
 
-            var firstName = "Frodo";
-            //C#
-            string lastName = "Baggins";
-            int j;
-            //.Net Framework
-            String home = "Shire";
-            Int32 i;
+            //Converting the Enum's key to a string
+            var method2 = ShippingMethod.Express;
+            Console.WriteLine(method2.ToString());
 
-            var fullName = firstName + " " + lastName;
-            //string format
-            var myFullName = string.Format("My name is {0} {1}", firstName, lastName);
-
-            //string join
-            var names = new string[3] { "John", "Jack", "Mary" };
-            var formattedNames = string.Join(",", names);
-
-            Console.WriteLine(formattedNames);
-
-            //verbatims strings
-            //var text = "Hi John\n look into the following path \n c:\\projects\\project1\\folder";
-            var text = @"Hi John
-look into the following path
-c:\projects\project1\folder";
-            Console.WriteLine(text);
-
-
+            //Convert string into an Enum
+            var methodName = "Express";
+            //use parsing, conver the string into another type( use casting)
+            var shippingMethod = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
+            
 
         }
     }
