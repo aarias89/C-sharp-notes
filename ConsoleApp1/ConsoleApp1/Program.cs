@@ -1,17 +1,7 @@
-﻿using System;
+﻿using ConsoleApp1.Math;
 
 namespace ConsoleApp1
 {
-    public class Person
-    {
-        public string FirstName;
-        public string LastName;
-
-        public void Introduce()
-        {
-            Console.WriteLine("My name is " + FirstName + " " + LastName );
-        }
-    }
 
     class Program
     {
@@ -23,6 +13,10 @@ namespace ConsoleApp1
             Frodo.LastName = "Baggins";
             Frodo.Introduce();
 
+            //to avoid intstantiating a class like calculator, use static keyword (public static int Add)
+            Calculator calculator = new Calculator();
+            var result = calculator.Add(5, 6);
+            System.Console.WriteLine(result);
         }
     }
 }
