@@ -8,20 +8,29 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //var name = "Homer Simpson";
-
-            //foreach ( var character in name)
+            //var i = 0;
+            //while (i<=10)
             //{
-            //    Console.WriteLine(character);
+            //    if(i % 2 == 0)
+            //        Console.WriteLine(i);
+            //    i++;
             //}
 
-            var numbers = new int[] { 1, 2, 3, 4 };
-
-            foreach ( var i in numbers)
+            string input = null;
+            while (input != "quit")
             {
-                Console.WriteLine("I am number: " + i );
+                Console.Write("Type your name: ");
+                input = Console.ReadLine();
+                Console.WriteLine("@Echo: " + input);
+
+                if (String.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("You need to type your name or type quit");
+                }
+
             }
 
         }
     }
 }
+
