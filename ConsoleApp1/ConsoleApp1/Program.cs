@@ -8,22 +8,20 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-          
-            for (var i = 1; i <= 10; i++)
+            //var name = "Homer Simpson";
+
+            //foreach ( var character in name)
+            //{
+            //    Console.WriteLine(character);
+            //}
+
+            var numbers = new int[] { 1, 2, 3, 4 };
+
+            foreach ( var i in numbers)
             {
-                if (i % 2 == 0)
-                {
-                    Console.WriteLine(i);
-                }
+                Console.WriteLine("I am number: " + i );
             }
 
-            for (var i=10; i >= 1; i--)
-            {
-                if (i%2 ==0)
-                {
-                    Console.WriteLine(i);
-                }
-            }
         }
     }
 }
