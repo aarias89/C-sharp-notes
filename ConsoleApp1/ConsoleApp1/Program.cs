@@ -10,58 +10,31 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //int hour = 10;
-
-            //if (hour > 0 && hour <12)
-            //{
-            //    Console.WriteLine("it's morning");
-            //}
-            //else if (hour >= 12 && hour < 18)
-            //{
-            //    Console.WriteLine("It's afternoon");
-            //}
+            //Console.Write("Enter a number between 1 to 10: ");
+            //var input = Console.ReadLine();
+            //var number = Convert.ToInt32(input);
+            //if (number >= 1 && number <= 10)
+            //    Console.WriteLine("Valid");
             //else
-            //{
-            //    Console.WriteLine("It's evening");
-            //}
+            //    Console.WriteLine("Invalid");
 
+            Console.Write("What is the speed limit? ");
+            var speedLimit = Convert.ToInt32(Console.ReadLine());
 
-            //bool isGoldCustomer = true;
+            Console.Write("What is the speed of this car? ");
+            var carSpeed = Convert.ToInt32(Console.ReadLine());
 
-            //float price;
-            //if (isGoldCustomer)
-            //    price = 19.95f;
-            //else
-            //    price = 29.95f;
-
-            //float price = (isGoldCustomer) ? 19.95f : 29.95f;
-            //Console.WriteLine(price);
-
-
-            var season = Season.Autumn;
-
-            switch (season)
+            if (carSpeed < speedLimit)
+                Console.WriteLine("Ok");
+            else
             {
-
-                //having these 2 cases stacked like this (Autumn and Summer) will make them share the same block of code("I love this season")
-                //case Season.Autumn:
-                //case Season.Summer:
-                //    Console.WriteLine("I love this season!");
-                //    break;
-                case Season.Autumn:
-                    Console.WriteLine("It's Autumn and a beautiful season");
-                    break;
-                case Season.Summer:
-                    Console.WriteLine("It's Summer and its a hot season");
-                    break;
-                case Season.Spring:
-                    Console.WriteLine("It's Spring and its a season full of pollen");
-                    break;
-                default:
-                    Console.WriteLine("This season is too cold to even mention");
-                    break;
+                const int kmPerDemeritPoint = 5;
+                var demeritPoints = (carSpeed - speedLimit) / kmPerDemeritPoint;
+                if (demeritPoints > 12)
+                    Console.WriteLine("License Suspended");
+                else
+                    Console.WriteLine("Demerit points: " + demeritPoints);
             }
-      
 
         }
     }
