@@ -9,45 +9,24 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var numbers = new List<int>() { 1,12,2,3,4 };
-            numbers.Add(9);
-            numbers.AddRange(new int[3] { 11,12,13 });
+            var dateTime = new DateTime(2018,1,1);
+            var now = DateTime.Now;
+            var today = DateTime.Today;
+            Console.WriteLine(now);
+            //datetime objects are immutable 
+            var tomorrow = now.AddDays(1);
+            var yesterday = now.AddDays(-1);
+            //converting datime to a string
 
-            foreach (var number in numbers)
-            {
-                Console.WriteLine(number);
-            }
+            Console.WriteLine("#####################################");
 
-            //IndexOf
-
-            Console.WriteLine("index of 12 : " + numbers.IndexOf(12)); 
-            Console.WriteLine("last index of 12 : " + numbers.LastIndexOf(12));
-
-
-            Console.WriteLine("Count: " + numbers.Count);
-
-
-            //Remove
-
-            numbers.Remove(12);
-            Console.WriteLine("Effecs of Remove()");
-            foreach (var number in numbers)
-            {
-                //it only removes the first instance of the paramater passed to the Remove method.
-                Console.WriteLine(number);
-            }
-        //to remove all instances...use for loop...foreach loops will throw error
-           for (var i =0; i < numbers.Count; i ++)
-            {
-                if (numbers[i] == 12)
-                    numbers.Remove(numbers[i]);
-            }
-
-            //Clear()
-            numbers.Clear();
-           Console.WriteLine(numbers.Count);
-
-
+            Console.WriteLine(now.ToLongDateString());
+            Console.WriteLine(now.ToShortDateString());
+            Console.WriteLine(now.ToLongTimeString());
+            Console.WriteLine(now.ToShortTimeString());
+            Console.WriteLine(now.ToString());
+            //with format specifiers
+            Console.WriteLine(now.ToString("yy-MM-dd HH:mm"));
         }
     }
 }
