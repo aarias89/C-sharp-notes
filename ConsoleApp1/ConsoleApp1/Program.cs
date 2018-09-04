@@ -9,24 +9,36 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var dateTime = new DateTime(2018,1,1);
-            var now = DateTime.Now;
-            var today = DateTime.Today;
-            Console.WriteLine(now);
-            //datetime objects are immutable 
-            var tomorrow = now.AddDays(1);
-            var yesterday = now.AddDays(-1);
-            //converting datime to a string
+            //creating 
+            var timeSpan = new TimeSpan(1,2,3);//1 hr 2min 3 secs
 
-            Console.WriteLine("#####################################");
+            var timeSpan1 = new TimeSpan(1, 0, 0);
 
-            Console.WriteLine(now.ToLongDateString());
-            Console.WriteLine(now.ToShortDateString());
-            Console.WriteLine(now.ToLongTimeString());
-            Console.WriteLine(now.ToShortTimeString());
-            Console.WriteLine(now.ToString());
-            //with format specifiers
-            Console.WriteLine(now.ToString("yy-MM-dd HH:mm"));
+            var timeSpan2 = TimeSpan.FromHours(1);
+
+            var start = DateTime.Now;
+            var end = DateTime.Now.AddMinutes(2);
+            var duration = end - start;
+
+            Console.WriteLine("Duration: " + duration);
+
+            //Properties
+            Console.WriteLine("Minutes: " +  timeSpan.Minutes);
+            Console.WriteLine("Total Minutes: " +  timeSpan.TotalMinutes);
+
+            //Add
+            Console.WriteLine("Add example: " + timeSpan.Add(TimeSpan.FromMinutes(8)));
+
+            //subtract 
+            Console.WriteLine("Subtract example: " + timeSpan.Subtract(TimeSpan.FromMinutes(2)));
+
+            //Conversion to and from string
+
+            Console.WriteLine("ToString: " +  timeSpan.ToString());
+
+            Console.WriteLine("Parse: " + TimeSpan.Parse("01:02:03"));
+
+
         }
     }
 }
