@@ -9,39 +9,39 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var fullName = "Bilbo Baggins ";
-            //Trim
-            Console.WriteLine("Trim: '{0}'",fullName.Trim());
-            //ToUpper
-            Console.WriteLine("ToUpper: '{0}'",fullName.Trim().ToUpper());
-            //Split
-            var index = fullName.IndexOf(' ');
-            var firstName = fullName.Substring(0,index);
-            var lastName = fullName.Substring(index + 1);
-            Console.WriteLine("First Name: " + firstName);
-            Console.WriteLine("Last Name: " + lastName);
+            var sentence = " This is going to be a really, really, really, really ,really long text that will need to be summarized";
+            var summary = SummarizedText(sentence);
+            Console.WriteLine(summary);
+          
+        }
+        //this method should really be in a different class.
+        static string SummarizedText(string text, int maxLength = 20)
+        {
 
-            var names = fullName.Split(' ');//var in this instance is an array
-            Console.WriteLine("First Name: " + names[0]);
-            Console.WriteLine("Last Name: " + names[1]);
-
-            //Replace
-            Console.WriteLine(fullName.Replace("Bilbo", "Froddo"));
-            Console.WriteLine(fullName.Replace("g", "G"));
-
-            //Working with Empty Strings or Nulls--- String Validation
-
-            if (String.IsNullOrEmpty(null))// if parameter passed is " " with a space, it will not be empty or null...need to Trim() first. Or use .IsNullOrWhiteSpace()
+            if (text.Length < maxLength)
             {
-                Console.WriteLine("It's empty...Invalid");
+                return text;
+            }
+            else
+            {
+                var words = text.Split(' ');
+                var totalCharacters = 0;
+                var summaryWords = new List<string>();
+
+                foreach (var word in words)
+                {
+                    summaryWords.Add(word);
+                    totalCharacters += word.Length + 1;
+                    if (totalCharacters > maxLength)
+                        break;
+                }
+
+                var summary = String.Join(" ", summaryWords) + "...";
+                return summary;
             }
 
-            //Numbers to Strings and vice verse
-            var str = 25;
-            var age = Convert.ToByte(str)
-                Console.WriteLine("Age: " + age);
-            float price = 29.95f;
-            Console.WriteLine(price.ToString("C0"));
+
+
         }
     }
 }
