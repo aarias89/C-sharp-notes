@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 
 namespace ConsoleApp1
@@ -9,38 +10,25 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var sentence = " This is going to be a really, really, really, really ,really long text that will need to be summarized";
-            var summary = SummarizedText(sentence);
-            Console.WriteLine(summary);
-          
-        }
-        //this method should really be in a different class.
-        static string SummarizedText(string text, int maxLength = 20)
-        {
+            var builder = new StringBuilder();// you can specify a starting string
+            //Append
+            builder.Append('-', 10);
+            builder.AppendLine();
+            builder.Append("Header");
+            builder.AppendLine();
+            builder.Append('-', 10);
 
-            if (text.Length < maxLength)
-            {
-                return text;
-            }
-            else
-            {
-                var words = text.Split(' ');
-                var totalCharacters = 0;
-                var summaryWords = new List<string>();
+            //Replace
+            builder.Replace('-', '+');
 
-                foreach (var word in words)
-                {
-                    summaryWords.Add(word);
-                    totalCharacters += word.Length + 1;
-                    if (totalCharacters > maxLength)
-                        break;
-                }
+            //Remove
+            builder.Remove(0, 10);// start at index 0 and remove 10 chars
 
-                var summary = String.Join(" ", summaryWords) + "...";
-                return summary;
-            }
+            //Insert
+            builder.Insert(0, new string('-', 10));
 
 
+            Console.WriteLine(builder);
 
         }
     }
