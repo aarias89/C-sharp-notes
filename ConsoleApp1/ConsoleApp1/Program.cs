@@ -9,36 +9,39 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //creating 
-            var timeSpan = new TimeSpan(1,2,3);//1 hr 2min 3 secs
+            var fullName = "Bilbo Baggins ";
+            //Trim
+            Console.WriteLine("Trim: '{0}'",fullName.Trim());
+            //ToUpper
+            Console.WriteLine("ToUpper: '{0}'",fullName.Trim().ToUpper());
+            //Split
+            var index = fullName.IndexOf(' ');
+            var firstName = fullName.Substring(0,index);
+            var lastName = fullName.Substring(index + 1);
+            Console.WriteLine("First Name: " + firstName);
+            Console.WriteLine("Last Name: " + lastName);
 
-            var timeSpan1 = new TimeSpan(1, 0, 0);
+            var names = fullName.Split(' ');//var in this instance is an array
+            Console.WriteLine("First Name: " + names[0]);
+            Console.WriteLine("Last Name: " + names[1]);
 
-            var timeSpan2 = TimeSpan.FromHours(1);
+            //Replace
+            Console.WriteLine(fullName.Replace("Bilbo", "Froddo"));
+            Console.WriteLine(fullName.Replace("g", "G"));
 
-            var start = DateTime.Now;
-            var end = DateTime.Now.AddMinutes(2);
-            var duration = end - start;
+            //Working with Empty Strings or Nulls--- String Validation
 
-            Console.WriteLine("Duration: " + duration);
+            if (String.IsNullOrEmpty(null))// if parameter passed is " " with a space, it will not be empty or null...need to Trim() first. Or use .IsNullOrWhiteSpace()
+            {
+                Console.WriteLine("It's empty...Invalid");
+            }
 
-            //Properties
-            Console.WriteLine("Minutes: " +  timeSpan.Minutes);
-            Console.WriteLine("Total Minutes: " +  timeSpan.TotalMinutes);
-
-            //Add
-            Console.WriteLine("Add example: " + timeSpan.Add(TimeSpan.FromMinutes(8)));
-
-            //subtract 
-            Console.WriteLine("Subtract example: " + timeSpan.Subtract(TimeSpan.FromMinutes(2)));
-
-            //Conversion to and from string
-
-            Console.WriteLine("ToString: " +  timeSpan.ToString());
-
-            Console.WriteLine("Parse: " + TimeSpan.Parse("01:02:03"));
-
-
+            //Numbers to Strings and vice verse
+            var str = 25;
+            var age = Convert.ToByte(str)
+                Console.WriteLine("Age: " + age);
+            float price = 29.95f;
+            Console.WriteLine(price.ToString("C0"));
         }
     }
 }
